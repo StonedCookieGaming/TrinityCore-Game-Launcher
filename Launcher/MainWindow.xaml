@@ -1,0 +1,289 @@
+﻿<Window x:Class="Launcher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+      
+        WindowStyle="None" AllowsTransparency="True" 
+        Background="Transparent"
+        
+        Title="World of Warcraft Launcher" Height="670" Width="855">
+
+    <Window.Resources>
+        <Style TargetType="RichTextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBoxBase">
+                        <Border BorderThickness="{TemplateBinding Border.BorderThickness}"
+                    BorderBrush="{TemplateBinding Border.BorderBrush}"
+                    Background="{TemplateBinding Panel.Background}"
+                    Name="border"
+                    SnapsToDevicePixels="True">
+                            <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Name="PART_ContentHost" Focusable="False" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="UIElement.IsEnabled" Value="False">
+                                <Setter Property="UIElement.Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="UIElement.IsKeyboardFocused" Value="True">
+                                <Setter Property="Border.BorderBrush" TargetName="border">
+                                    <Setter.Value>
+                                        <SolidColorBrush>#FF569DE5</SolidColorBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <Style x:Key="PlayBtn" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Hover.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Click.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Disabled.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CloseBtn" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Close-Hover.png" Stretch="Uniform" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Close-Click.png" Stretch="Uniform" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="InstallBtn" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Hover.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Click.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Disabled.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="WebBtn" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Hover.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Click.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Disabled.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="DiscBtn" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Hover.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Click.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border">
+                                    <Setter.Value>
+                                        <ImageBrush ImageSource="/Launcher;component/images/Button-Disabled.png" Stretch="None" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image x:Name="image" MouseDown="Window_MouseDown" HorizontalAlignment="Center" Height="623" VerticalAlignment="Center" Width="844" Source="/Launcher;component/images/Window.png" Stretch="None" />
+        <Button x:Name="playBtn" Style="{DynamicResource PlayBtn}" Content="Play" HorizontalAlignment="Left" Margin="632,546,0,0" VerticalAlignment="Top" Height="63" Width="152" IsDefault="True" Foreground="White" BorderBrush="{x:Null}" FontSize="20" FontFamily="Californian FB" FontStretch="Normal" FontWeight="Bold">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="/images/Button.png"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush Stretch="None" ImageSource="/images/Button.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="installBtn" Style="{DynamicResource InstallBtn}" Content="Install" HorizontalAlignment="Left" Margin="632,546,0,0" VerticalAlignment="Top" Height="63" Width="152" IsDefault="True" Foreground="White" BorderBrush="{x:Null}" FontSize="20" FontFamily="Californian FB" FontStretch="Normal" FontWeight="Bold">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="/images/Button.png"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush Stretch="None" ImageSource="/images/Button.png"/>
+            </Button.Background>
+        </Button>
+        <Image x:Name="serverStatusIcon" HorizontalAlignment="Left" Margin="152,530,0,116" Width="22" Source="/Launcher;component/images/Indicator-Yellow.PNG" Stretch="None" RenderTransformOrigin="0.627,0.627"/>
+        <TextBlock x:Name="serverStatus" Text="Checking server status..." ToolTip="{Binding Text, ElementName=serverStatus}" HorizontalAlignment="Left" Margin="178,530,0,0" VerticalAlignment="Top" Width="300" FontSize="20" FontWeight="Bold" Foreground="#FFDFFF00" FontFamily="Californian FB" TextTrimming="None"/>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Height="42" Margin="99,558,0,0" VerticalAlignment="Top" Width="512" Foreground="#FF06A4B0" BorderThickness="0,0,0,0" Background="#FF192D33"/>
+        <Image x:Name="image1" Height="100" Margin="83,542,228,0" VerticalAlignment="Top" Source="/Launcher;component/images/PatchBar.png"/>
+        <Image Margin="178,62,177,300" Source="/images/logo.png" Stretch="Fill"/>
+        <RichTextBox Margin="100,334,99,202" Foreground="Yellow" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" IsReadOnly="True" SelectionTextBrush="{x:Null}" Focusable="False" AllowDrop="False" FontFamily="Papyrus" IsDocumentEnabled="True" Cursor="Arrow"  >
+            <FlowDocument>
+                <Paragraph TextAlignment="Center">
+                    <Run Text="Welcome to SERVER_NAME" FontSize="35" FontWeight="Bold" />
+                </Paragraph>
+                <Paragraph TextAlignment="Center">
+                    <Run Text="A TrinityCore server" FontSize="25" FontWeight="Bold"/>
+                    <Run Text=" "/>
+                    <Run Text="."/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Label x:Name="progressInfo" Content="{Binding ProgressInfo, ElementName=MainWindow}" HorizontalAlignment="Left" Margin="112,566,0,0" VerticalAlignment="Top" Width="483" Foreground="Yellow" FontFamily="Californian FB"        Visibility="Visible" FontWeight="Bold" Height="26"/>
+        <Button x:Name="webBtn" Style="{DynamicResource WebBtn}" Content="Website" HorizontalAlignment="Left" Margin="83,24,0,0" VerticalAlignment="Top" Height="48" Width="156" IsDefault="True" Foreground="White" BorderBrush="{x:Null}" FontSize="20" FontFamily="Californian FB" FontStretch="Normal" FontWeight="Bold">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="/images/Button.png"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush Stretch="None" ImageSource="/images/Button.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="discBtn" Style="{DynamicResource DiscBtn}" Content="Discord" HorizontalAlignment="Left" Margin="239,24,0,0" VerticalAlignment="Top" Height="48" Width="156" IsDefault="True" Foreground="White" BorderBrush="{x:Null}" FontSize="20" FontFamily="Californian FB" FontStretch="Normal" FontWeight="Bold">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="/images/Button.png"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush Stretch="None" ImageSource="/images/Button.png"/>
+            </Button.Background>
+        </Button>
+        <Image x:Name="Border" Margin="-1,0,0,2" Source="/border.png" Stretch="Fill" IsHitTestVisible="False"/>
+        <Button x:Name="button" Style="{DynamicResource CloseBtn}" HorizontalAlignment="Left" Margin="789,15,0,0" VerticalAlignment="Top" Height="42" Width="43" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="Close_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Launcher;component/images/Close.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="updateBtn" Style="{DynamicResource InstallBtn}" Content="Update" HorizontalAlignment="Left" Margin="632,546,0,0" VerticalAlignment="Top" Height="62" Width="152" IsDefault="True" Foreground="White" BorderBrush="{x:Null}" FontSize="20" FontFamily="Californian FB" FontStretch="Normal" FontWeight="Bold" Visibility="Collapsed">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="/images/Button.png"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush Stretch="None" ImageSource="/images/Button.png"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>
