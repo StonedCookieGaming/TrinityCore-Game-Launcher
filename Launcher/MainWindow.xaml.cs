@@ -92,7 +92,7 @@ namespace Launcher
 
         }
 
-       private async void CheckForLauncherUpdates()
+        private async void CheckForLauncherUpdates()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -163,13 +163,14 @@ namespace Launcher
                 installBtn.Visibility = Visibility.Collapsed;
                 playBtn.Visibility = Visibility.Visible;
                 progressInfo.Visibility = Visibility.Visible;
-                
+
             }
             else
             {
                 Debug.WriteLine($"Game executable not found in directory: {executableDirectory}");
                 installBtn.Visibility = Visibility.Visible;
-                playBtn.Visibility = Visibility.Collapsed;            }
+                playBtn.Visibility = Visibility.Collapsed;
+            }
         }
 
         private async void CheckForGameUpdates()
@@ -238,7 +239,7 @@ namespace Launcher
 
 
         private async void installBtn_Click(object sender, RoutedEventArgs e)
-            {
+        {
             Debug.WriteLine("Install button clicked!");
             if (!IsInstalling)
             {

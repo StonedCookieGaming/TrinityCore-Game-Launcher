@@ -9,7 +9,7 @@
     <Title>TrinityLauncher</Title>
     <Authors>StonedCookieGaming</Authors>
     <Company>StonedCookieGaming LLC</Company>
-    <PackageProjectUrl></PackageProjectUrl>
+    <PackageProjectUrl>https://www.stonedcookiegaming.com</PackageProjectUrl>
     <PackageIcon>app.png</PackageIcon>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <ApplicationIcon>wow_app.ico</ApplicationIcon>
@@ -17,13 +17,14 @@
     <Product>Launcher</Product>
     <Copyright>StonedCookieGaming LLC 2024</Copyright>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <Version>1.0</Version>
-    <RepositoryUrl>https://github.com/StonedCookieGaming/TrinityLauncher</RepositoryUrl>
+    <Version>1.0.1</Version>
+    <RepositoryUrl>https://github.com/StonedCookieGaming/Trinity-Game-Launcher</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Description>A simple application to launch and update game files for TrinityCore private servers</Description>
+    <Description>A launcher designed to launch TrinityCore's Arctium WoW game client and update game files.</Description>
     <StartupObject></StartupObject>
     <Platforms>AnyCPU</Platforms>
     <Configurations>Debug;Release</Configurations>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -96,6 +97,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\Resources\app.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
