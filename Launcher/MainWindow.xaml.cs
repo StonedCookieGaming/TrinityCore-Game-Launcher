@@ -70,7 +70,7 @@ namespace Launcher
         public MainWindow()
         {
             InitializeComponent();
-            CheckServerStatus("YOUR_SERVER_IP", 8085);
+            CheckServerStatus("pandaexpresswow.centralus.cloudapp.azure.com", 8085);
             Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
             ContentRendered += MainWindow_ContentRendered;
             installBtn.Click += installBtn_Click;
@@ -98,7 +98,7 @@ namespace Launcher
             {
                 try
                 {
-                    string launcherVersionUrl = "https://YOURDOMAIN.com/download/launcher-version.txt";
+                    string launcherVersionUrl = "https://pandaexpresswow.com/download/launcher-version.txt";
                     string localUpdaterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "updater.exe");
 
                     DateTime serverLastModifiedDate = await GetLastModifiedDateTimeAsync(client, launcherVersionUrl);
@@ -179,7 +179,7 @@ namespace Launcher
             {
                 try
                 {
-                    string versionUrl = "https://YOURDOMAIN.com/download/game-version.txt";
+                    string versionUrl = "https://pandaexpresswow.com/download/game-version.txt";
 
                     // Use async/await to asynchronously get the latest version
                     string latestVersionString = await client.GetStringAsync(versionUrl).ConfigureAwait(false);
@@ -305,7 +305,7 @@ namespace Launcher
             try
             {
                 // Open the hyperlink when the button is clicked
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://YOURDOMAIN.com")
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://pandaexpresswow.com")
                 {
                     UseShellExecute = true
                 });
@@ -321,7 +321,7 @@ namespace Launcher
             try
             {
                 // Open the hyperlink when the button is clicked
-                Process.Start(new ProcessStartInfo("https://discord.gg/DISCORD_INVITE")
+                Process.Start(new ProcessStartInfo("https://discord.gg/MpyUBsAvjD")
                 {
                     UseShellExecute = true
                 });

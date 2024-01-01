@@ -11,10 +11,10 @@
     <ROW Property="ARPCONTACT" Value="https://www.stonedcookiegaming.com"/>
     <ROW Property="ARPNOREPAIR" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="ARPPRODUCTICON" Value="wow_app.exe" Type="8"/>
-    <ROW Property="Manufacturer" Value="YOUR_SERVER_NAME"/>
+    <ROW Property="Manufacturer" Value="Panda Express WoW"/>
     <ROW Property="ProductCode" Value="1033:{E5727169-F85D-481D-B0D6-1B33E602384A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
-    <ROW Property="ProductName" Value="Launcher"/>
+    <ROW Property="ProductName" Value="Panda Express WoW Launcher"/>
     <ROW Property="ProductVersion" Value="1.0.1" Options="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{43BE59CA-257B-4764-B429-22D108F77160}"/>
